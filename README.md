@@ -1,6 +1,6 @@
 # jdineen_django 
 
-https://www.spacextrack.com/
+https://www.jdineen.co.uk/
 
 ## Development Server Setup
 
@@ -46,7 +46,7 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
 
 #### 1. Perform System Check
 ```
-python manage.py check --deploy --settings=space_django.settings.production
+python manage.py check --deploy --settings=jdineen_django.settings.production
 ```
 
 ## Tips
