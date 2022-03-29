@@ -1,0 +1,13 @@
+
+*.png
+*.jpeg
+*.ico
+
+*.pyc
+*.sqlite
+*.sqlite3
+
+.env
+
+.venv/
+sfiles/

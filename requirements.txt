@@ -1,0 +1,4 @@
+Django==4.0.3
+django-compressor==3.1
+django-libsass==0.9
+python-dotenv==0.20.0

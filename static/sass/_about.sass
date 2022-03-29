@@ -1,0 +1,133 @@
+
+#about_section {
+    padding-top: 5em;
+    padding-bottom: 15em;
+    color: #283237;
+}
+
+.keystone_container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 0 10%;
+    margin-bottom: 7em;
+    padding: 0;
+    list-style-type: none;
+    width: 80%;
+}
+
+.keystone {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 24.5%;
+}
+
+.keystone_content {
+    padding: 0 3em;
+    text-align: center;
+}
+
+.keystone_header {
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.about_bottom {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.summary_container {
+    margin: 0 0 0 20%;
+    display: flex;
+    width: 27.5%;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.summary_header {
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.tool_progress_container {
+    margin: 0 0 0 5%;
+    display: inline-block;
+    width: 27.5%;
+}
+
+.tool_progress_bar {
+    margin: 0 0 1em 0;
+    display: inline-block;
+    width: 100%;
+    background: #f0f0f0;
+    border-radius: 2em;
+}
+
+.tool_progress_bar .bar_percent {
+    padding: 0.8em 1.3em;
+    padding-left: 0;
+    float: right;
+    border-radius: 2em;
+}
+
+.tool_progress_bar .bar_fill {
+    height: 100%;
+    float: left;
+    background: rgb(39, 54, 73);
+    border-radius: 2em;
+}
+
+.tool_progress_bar .bar_fill .tag {
+    padding: 0.8em 0;
+    display: inline-block;
+    width: 7em;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 900;
+    background: rgb(27, 38, 51);
+    border-radius: 2em;
+}
+
+@media(max-width: 1300px) {
+    .about_bottom {
+        display: block;
+    }
+
+    .summary_container {
+        margin: 0 25%;
+        margin-bottom: 6em;
+        display: block;
+        width: 50%;
+    }
+
+    .tool_progress_container {
+        margin: 0 15%;
+        display: block;
+        width: 70%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .keystone {
+        width: 49.5%;
+    }
+}
+
+@media(max-width: 750px) {
+    .keystone {
+        width: 100%;
+        display: block;
+    }
+
+    .tool_progress_container {
+        margin: 0 5%;
+        display: block;
+        width: 90%;
+    }
+}
