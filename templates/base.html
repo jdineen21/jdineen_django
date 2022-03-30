@@ -1,4 +1,4 @@
-{% load compress static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,16 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="Description" content="Portfolio Website for Joe Dineen (Web Developer)">
-        {% compress js %}
-            {% comment %} <script src="{% static "js/app.js" %}" defer></script> {% endcomment %}
-            <script src="{% static "js/matrix.js" %}" defer></script>
-            <script src="{% static "js/modal.js" %}" defer></script>
-        {% endcompress %}
+        <script src="{% static "compiled/app.js" %}" defer></script>
+        <script src="{% static "js/matrix.js" %}" defer></script>
+        <script src="{% static "js/modal.js" %}" defer></script>
         <head>
             <title>Joe Dineen</title>
-            {% compress css %}
-                <link type="text/x-scss" href="{% static "sass/app.scss" %}" rel="stylesheet" media="screen">
-            {% endcompress %}
+            <link rel="stylesheet" type="text/css" href="{% static 'compiled/app.css' %}" >
             <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
         </head>
     </head>

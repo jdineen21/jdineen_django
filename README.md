@@ -10,16 +10,24 @@ git clone --recursive https://github.com/jdineen21/jdineen_django
 cd jdineen_django 
 ```
 
-#### 2. Create and mount python virtual environment
+#### 2. Upgrade pip and install virtualenv
 ```
 python -m pip install --upgrade pip
 pip install virtualenv
-python -m venv .venv
-source .venv/bin/activate
 ```
 
-#### 3. Install required python packages from requirements.txt
+#### 3. Setup Development Environment
+Linux
 ```
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+Windows
+```
+python -m venv .venv
+.venv/Scripts/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```

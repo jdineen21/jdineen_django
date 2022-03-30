@@ -1,0 +1,37 @@
+{
+  "name": "jdineen_django",
+  "version": "1.0.0",
+  "description": "https://www.jdineen.co.uk/",
+  "main": "index.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdineen21/jdineen_django.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdineen21/jdineen_django/issues"
+  },
+  "homepage": "https://github.com/jdineen21/jdineen_django#readme",
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "laravel-mix": "^6.0.43",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "react": "^18.0.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^18.0.0"
+  }
+}

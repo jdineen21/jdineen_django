@@ -10,4 +10,6 @@
 .env
 
 .venv/
-sfiles/
+public/
+node_modules/
+static/compiled/
