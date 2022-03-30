@@ -184,18 +184,19 @@
             <div class="container">
                 <h1 class="contact_header">Contact</h1>
                 <div class="contact_header_underline"></div>
-                {% comment %} @if(isset($sent))
-                <p class="contact_prompt">Thank you! Your message has been sent.</p>
-                @else {% endcomment %}
-                <p class="contact_prompt">Have a question?</p>
-                <form class="contact_form" id="contact_form" name="contact_form" action="/#contact_section" method="post">
-                    {% comment %} {{ csrf_field() }} {% endcomment %}
-                    <input class="contact_input" placeholder="Name" type="text" name="name" id="" required>
-                    <input class="contact_input" placeholder="Enter email" type="email" name="email" id="" required>
-                    <textarea placeholder="Your Message" name="message" id="" cols="30" rows="10"></textarea>
-                    <input class="contact_submit" type="submit" value="SUBMIT">
-                </form>
-                {% comment %} @endif {% endcomment %}
+                {% if sent %}
+                    <p class="contact_prompt">Thank you! Your message has been sent.</p>
+                {% else %}
+                    <p class="contact_prompt">Have a question?</p>
+                    <form class="contact_form" id="contact_form" name="contact_form" action="/#contact_section" method="post">
+                        {% csrf_token %}
+                        {{ contact_form.management_form }}
+                        {% for field in contact_form %}
+                            {{ field }}
+                        {% endfor %}
+                        <input class="contact_submit" type="submit" value="SUBMIT">
+                    </form>
+                {% endif %}
             </div>
         </section>
         <footer id="footer">

@@ -1,12 +1,17 @@
 from django.db import models
+from django.forms import ModelForm, TextInput
 
 class Contact(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
     email_address = models.EmailField(max_length=254)
     message = models.TextField()
 
-class Contact(models.ModelForm):
+class ContactForm(ModelForm):
     class Meta:
         model = Contact
-        fields = ['first_name', 'last_name', 'email_address', 'message']
+        fields = ['name', 'email_address', 'message']
+        widgets = {
+            'name': TextInput(attrs={'class': 'contact_input', 'placeholder': 'Name'}),
+            'email_address': TextInput(attrs={'class': 'contact_input', 'placeholder': 'Email'}),
+            'message': TextInput(attrs={'class': 'contact_textarea', 'placeholder': 'Message'}),
+        }
