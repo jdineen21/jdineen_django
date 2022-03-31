@@ -6,6 +6,13 @@ class Contact(models.Model):
     email_address = models.EmailField(max_length=254)
     message = models.TextField()
 
+    class Meta:
+        verbose_name = 'contact'
+        verbose_name_plural = 'contacts'
+
+    def __str__(self):
+        return self.name
+
 class ContactForm(ModelForm):
     class Meta:
         model = Contact
