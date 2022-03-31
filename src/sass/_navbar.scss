@@ -42,12 +42,12 @@
     border-radius: 0.05em;
     transition: color 0.3s;
     &:hover {
-        color: #008f11;
+        color: $accent-text;
     }
 }
 
 .active {
-    color: #008f11;
+    color: $accent-text;
 }
 
 @media(max-width: 570px) {

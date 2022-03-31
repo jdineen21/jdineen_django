@@ -19,8 +19,7 @@ export default class Navbar extends React.Component {
     }
 
     listenToScroll() {
-        const winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
         if (winScroll > document.getElementById('matrix_section').clientHeight) {
             this.setState({ setFixed: true, active: 1, })

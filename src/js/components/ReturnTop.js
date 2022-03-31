@@ -7,7 +7,7 @@ export default class ReturnTop extends Component {
     render() {
         return (
             <AnchorLink href="#matrix_section" >
-                <img src="assets/double-chevron-white.png" alt="" className="return_top_img" />
+                <img src="static/images/up-arrow.png" alt="" className="return_top_img" />
             </AnchorLink>
         );
     }
