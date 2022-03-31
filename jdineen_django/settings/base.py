@@ -16,6 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 INSTALLED_APPS = [
     'home',
+    'maintenance_mode',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,6 +33,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'jdineen_django.urls'
@@ -111,3 +113,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MAINTENANCE_MODE_STATE_FILE_PATH = BASE_DIR / 'maintenance_mode_state.txt'
+
+MAINTENANCE_MODE_IGNORE_ADMIN_SITE = True
+
+MAINTENANCE_MODE_IGNORE_STAFF = True
