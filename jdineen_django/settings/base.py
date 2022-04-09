@@ -15,14 +15,17 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'maintenance_mode',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'home',
+    'frontend.apps.FrontendConfig',
+    'api.apps.ApiConfig',
+    'maintenance_mode',
 ]
 
 MIDDLEWARE = [
