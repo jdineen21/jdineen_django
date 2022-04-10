@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+import ReactDOM from 'react-dom';
+import MatrixSection from './MatixSection';
+import Modals from "./Modal";
+import Navbar from "./Navbar";
+import About from "./About";
+import Portfolio from "./Portfolio";
+import SVG from "./SVG";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 export default class App extends Component {
     constructor(props) {
@@ -7,9 +15,20 @@ export default class App extends Component {
     }
 
     render() {
-        return <h1>Testing React Code</h1>;
+        return (
+            <div>
+                <Modals />
+                <MatrixSection />
+                <Navbar />
+                <About />
+                <Portfolio />
+                <SVG />
+                <Contact />
+                <Footer />
+            </div>
+        );
     }
 }
 
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+const container = document.getElementById('app');
+ReactDOM.render(<App tab="home" />, container);

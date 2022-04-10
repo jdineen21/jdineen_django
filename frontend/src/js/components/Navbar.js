@@ -59,7 +59,3 @@ export default class Navbar extends React.Component {
         );
     }
 }
-
-if (document.getElementById('navbar_container')) {
-    ReactDOM.render(<Navbar />, document.getElementById('navbar_container'));
-}
