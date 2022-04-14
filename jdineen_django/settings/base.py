@@ -22,10 +22,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'home',
+    'rest_framework',
+    'maintenance_mode',
+
     'frontend.apps.FrontendConfig',
     'api.apps.ApiConfig',
-    'maintenance_mode',
 ]
 
 MIDDLEWARE = [

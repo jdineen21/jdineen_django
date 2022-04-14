@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Matrix extends React.Component {
+export default class MatrixRain extends React.Component {
     static propTypes = {
         width: PropTypes.number,
         height: PropTypes.number,

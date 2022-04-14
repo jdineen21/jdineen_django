@@ -41,13 +41,14 @@
     text-decoration: none;
     border-radius: 0.05em;
     transition: color 0.3s;
-    &:hover {
-        color: $accent-text;
-    }
+}
+
+.tab:hover {
+    color: #6e839b;
 }
 
 .active {
-    color: $accent-text;
+    color: #6e839b;
 }
 
 @media(max-width: 570px) {
