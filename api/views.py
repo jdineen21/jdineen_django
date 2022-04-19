@@ -1,5 +1,6 @@
-from winreg import REG_QWORD
 import requests
+
+from django.conf import settings
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -23,9 +24,12 @@ class ContactList(APIView):
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
+        if request.data.get('g_recaptcha_response') is None:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
         recaptcha_response = request.data.get('g_recaptcha_response')
         data = {
-            'secret': '6Lci3WwfAAAAAIc9d2jMc4f_5SUg1iTWloYhCIvX',
+            'secret': settings.RECAPTCHA_SECRET_KEY,
             'response': recaptcha_response
         }
         r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)

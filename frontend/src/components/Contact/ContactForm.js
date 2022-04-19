@@ -4,29 +4,30 @@ import { useForm } from 'react-hook-form';
 
 export default function ContactForm() {
     const [submitted, setSubmitted] = React.useState(false);
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, setError, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken
-            },
-            body: JSON.stringify(data)
-        };
+        if (data.g_recaptcha_response != null) {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify(data)
+            };
+        
+            const response = await fetch('/api/contact/', requestOptions);
+            const jsonData = await response.json();
     
-        const response = await fetch('/api/contact/', requestOptions);
-        const jsonData = await response.json();
-
-        console.log(data);
-        console.log(jsonData);
-
-        setSubmitted(true);
+            setSubmitted(true);
+        } else {
+            setError('g_recaptcha', { type: 'required', message: 'ReCAPTCHA is required' });
+        }
     }
 
     function onChange(value) {
-        setValue('g_recaptcha_response', value)
+        setValue('g_recaptcha_response', value);
     }
 
     if (submitted) {
@@ -46,7 +47,8 @@ export default function ContactForm() {
                 <input {...register("message", { required: true, maxLength: 20 })} className="contact_textarea" placeholder="Message" />
                 {errors.message?.type === 'required' && <p>Message is required</p>}
 
-                <ReCAPTCHA sitekey="6Lci3WwfAAAAANp-rngajYZIdHYMVtaWeATVaUTl" onChange={onChange} />
+                <ReCAPTCHA {...register("g_recaptcha")} sitekey="6LfUhX4fAAAAABXqC-2PGmk2crPNQw-wGhM0oV5p" onChange={onChange} />
+                {errors.g_recaptcha?.type === 'required' && <p>{errors.g_recaptcha.message}</p>}
                 <input className="contact_submit" type="submit" />
             </form>
         </div>
