@@ -34,8 +34,8 @@ pip install -r requirements.txt
 
 #### 4. Install node modules and compile js
 ```
-npm i
-npm run production
+npm install
+npm run dev
 ```
 
 #### 5. Create .env file from .env.example and insert secret key

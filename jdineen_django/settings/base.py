@@ -11,18 +11,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY')
+
 
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'maintenance_mode',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'maintenance_mode',
+
+    'frontend.apps.FrontendConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
