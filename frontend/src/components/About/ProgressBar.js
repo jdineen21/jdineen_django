@@ -1,35 +1,93 @@
-import React from 'react';
+// import React from 'react';
   
-const ProgressBar = ({tag_text, progress}) => {
-     
-    const Parentdiv = {
-        width: '100%',
-        backgroundColor: 'whitesmoke',
-        borderRadius: 40,
-    }
-        
-    const Childdiv = {
-        height: '100%',
-        width: `${progress}%`,
-        borderRadius:40,
-        textAlign: 'right',
-        
-    }
-        
-    const progresstext = {
-        padding: 10,
-        color: 'black',
-        fontWeight: 900,
-    }
-        
-    return (
-        <div className='tool_progress_bar' style={Parentdiv}>
-            <div className='bar_fill' style={Childdiv}>
-                <div className='tag'>{tag_text}</div>
-            </div>
-            <span className='bar_percent' style={progresstext}>{`${progress}%`}</span>
-        </div>
+// const ProgressBar = ({tag_text, progress}) => {
+
+//     const [value, setValue] = React.useState(0);
+
+//     React.useEffect(() => {
+//         setValue(progress * "100%");
+//     });
+
+//     return (
+//         <div className='progress_bar'>
+//             <div style={{ "width": value+"px" }} className='bar_fill'></div>
+//             {/* <div style={{"width": progress}} className='fill'>
+//                 <div className='tag'>{tag_text}</div>
+//             </div>
+//             <span>{progress}</span> */}
+//         </div>
+//     );
+// }
+  
+// export default ProgressBar;
+
+import React, { useEffect, useState } from "react";
+import "./ProgressLine.css";
+
+const ProgressLine = ({
+    label,
+    backgroundColor = "#e5e5e5",
+    // expected format for visual parts
+    visualParts = [
+      {
+        percentage: "0%",
+        color: "white"
+      }
+    ]
+  }) => {
+    // Starting values needed for the animation
+    // Mapped by "visualParts" so it can work with multiple values dynamically
+    // It's an array of percentage widths
+    const [widths, setWidths] = useState(
+        visualParts.map(() => {
+        return 0;
+        })
     );
-}
-  
-export default ProgressBar;
+
+    useEffect(() => {
+        // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+        // You need to wrap it to trigger the animation
+        requestAnimationFrame(() => {
+        // Set a new array of percentage widths based on the props
+        setWidths(
+            visualParts.map(item => {
+            return item.percentage;
+            })
+        );
+        });
+    }, [visualParts]);
+
+    return (
+        <>
+            <div className="progressLabel">{label}</div>
+                <div
+                    className="progressVisualFull"
+                    // to change the background color dynamically
+                    style={{
+                    backgroundColor
+                    }}
+                >
+                {visualParts.map((item, index) => {
+                // map each part into separate div and each will be animated
+                // because of the "transition: width 2s;" css in class "progressVisualPart"
+                // and because of the new width ("widths[index]", previous one was 0)
+                return (
+                    <div
+                    // There won't be additional changes in the array so the index can be used
+                    /* eslint-disable-next-line react/no-array-index-key */
+                    key={index}
+                    style={{
+                        width: widths[index],
+                        // setting the actual color of bar part
+                        backgroundColor: item.color
+                    }}
+                    className="progressVisualPart"
+                    />
+                );
+                })}
+            </div>
+        </>
+    );
+};
+
+export default ProgressLine;

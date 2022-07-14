@@ -1,6 +1,7 @@
 import React from "react";
-import { Fade } from "react-reveal";
-import ProgressBar from "./ProgressBar";
+import Fade from "react-reveal/Fade";
+import Pulse from "react-reveal/Pulse";
+import ProgressLine from "./ProgressBar";
 import "./About.css";
 
 export default function About() {
@@ -46,22 +47,36 @@ export default function About() {
                     </ul>
                 </Fade>
                 <div className="about_bottom">
-                    <div className="summary_container">
-                        {/* <img src="static/images/joe-dineen.jpg" alt="" /> */}
-                        <h3 className="summary_header">What I'm about</h3>
-                        <p className="summary_description">
-                            I'm a Full-Stack Developer based in Sheffield, UK.
-                            I have a serious passion for making a difference through Web Development and creating intuitive, dynamic user experiences.
-                            Let's make something great.
-                        </p>
+                    <div className="summary">
+                        <Pulse>
+                            <img src="static/images/joe-dineen-headshot.jpg" alt="" />
+                        </Pulse>
+                        <Fade left>
+                            <h3>About me</h3>
+                            <p>
+                                I'm a Full-Stack Developer based in Sheffield, UK.
+                                I have a serious passion for making a difference through Web Development and creating intuitive, dynamic user experiences.
+                                Let's make something great.
+                            </p>
+                        </Fade>
                     </div>
                     <div className="tool_progress_container">
-                        <ProgressBar tag_text='HTML' progress='90' />
-                        <ProgressBar tag_text='CSS' progress='90' />
-                        <ProgressBar tag_text='Python' progress='90' />
-                        <ProgressBar tag_text='Django' progress='90' />
-                        <ProgressBar tag_text='Go' progress='90' />
-                        <ProgressBar tag_text='React' progress='90' />
+                        {/* <ProgressBar tag_text='HTML' progress='100%' />
+                        <ProgressBar tag_text='CSS' progress='95%' />
+                        <ProgressBar tag_text='Python' progress='90%' />
+                        <ProgressBar tag_text='Django' progress='85%' />
+                        <ProgressBar tag_text='Go' progress='80%' />
+                        <ProgressBar tag_text='React' progress='20%' /> */}
+                        <ProgressLine
+                            label="One visual percentage - changed background"
+                            backgroundColor="lightblue"
+                            visualParts={[
+                            {
+                                percentage: "23%",
+                                color: "indianred"
+                            }
+                            ]}
+                        />
                     </div>
                 </div>
             </div>

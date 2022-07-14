@@ -45,7 +45,7 @@
     display: flex;
 }
 
-.summary_container {
+.summary {
     margin: 0 0 0 20%;
     display: flex;
     width: 27.5%;
@@ -54,7 +54,14 @@
     flex-direction: column;
 }
 
-.summary_header {
+.summary img {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    border-radius: 0.4rem;
+}
+
+.summary h3 {
     font-weight: 900;
     font-size: 2em;
 }
@@ -65,7 +72,7 @@
     width: 27.5%;
 }
 
-.tool_progress_bar {
+.progress_bar {
     margin: 0 0 1em 0;
     display: inline-block;
     width: 100%;
@@ -73,21 +80,31 @@
     border-radius: 2em;
 }
 
-.tool_progress_bar .bar_percent {
-    padding: 0.8em 1.3em;
-    padding-left: 0;
-    float: right;
+.bar_fill {
+    height: 100%;
+    width: 100%;
+    background: rgb(39, 54, 73);
     border-radius: 2em;
+    height: 40px;
+    transition: 1s ease;
+    transition-delay: 1s;
 }
 
-.tool_progress_bar .bar_fill {
+.progress_bar span {
+    padding: 0.8em 1.3em;
+    float: right;
+    border-radius: 2em;
+    position: absolute;
+}
+
+.progress_bar .fill {
     height: 100%;
     float: left;
     background: rgb(39, 54, 73);
     border-radius: 2em;
 }
 
-.tool_progress_bar .bar_fill .tag {
+.fill .tag {
     padding: 0.8em 0;
     display: inline-block;
     width: 7em;
@@ -103,7 +120,7 @@
         display: block;
     }
 
-    .summary_container {
+    .summary {
         margin: 0 25%;
         margin-bottom: 6em;
         display: block;
