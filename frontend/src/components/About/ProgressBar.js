@@ -1,26 +1,3 @@
-// import React from 'react';
-  
-// const ProgressBar = ({tag_text, progress}) => {
-
-//     const [value, setValue] = React.useState(0);
-
-//     React.useEffect(() => {
-//         setValue(progress * "100%");
-//     });
-
-//     return (
-//         <div className='progress_bar'>
-//             <div style={{ "width": value+"px" }} className='bar_fill'></div>
-//             {/* <div style={{"width": progress}} className='fill'>
-//                 <div className='tag'>{tag_text}</div>
-//             </div>
-//             <span>{progress}</span> */}
-//         </div>
-//     );
-// }
-  
-// export default ProgressBar;
-
 import React, { useEffect, useState } from "react";
 import "./ProgressLine.css";
 
