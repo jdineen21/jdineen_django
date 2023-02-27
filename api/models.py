@@ -5,6 +5,8 @@ class Contact(models.Model):
     name = models.CharField(max_length=30)
     email_address = models.EmailField(max_length=254)
     message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'contact'
